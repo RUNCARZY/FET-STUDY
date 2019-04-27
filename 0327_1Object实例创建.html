@@ -1,0 +1,37 @@
+<html>
+<head>
+	<script language=javascript>
+	var obj = new Object();
+		obj.name = "Mr.Right";
+		obj.age=18;
+		obj.sayName=function(){
+			alert(this.name);
+		};
+		obj.sayAge=function(){
+			alert(this.age);
+		};
+
+//用字面量语法创建对象
+	var man={
+		name:"BatMan",
+		age:22,
+		sayName:function(){
+			alert(this.name);
+		},	
+		sayAge:function(){
+			alert(this.age);
+		}
+	}
+
+
+//用call方法改变this指针
+	man.sayName.call(obj);
+	man.sayAge();
+	obj.sayName.call(man);
+	obj.sayAge();
+	</script>
+</head>
+<body>
+
+</body>
+</html>

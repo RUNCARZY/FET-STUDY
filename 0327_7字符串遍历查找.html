@@ -1,0 +1,30 @@
+<html>
+<head>
+	<script language=javascript>
+		str="Hello,	Mr.Laurence. Hello, Miss.Loli. Hello, lol!";
+
+		function substrSearch(str1,substr1){
+			var substrLoc=new Array(3);
+			var reCount=0;
+			var locCount=0;
+			while(locCount<str1.length){
+				substrLoc[reCount]=str1.indexOf(substr1,locCount);
+				if(substrLoc[reCount]!=-1){//检测是否查找到最后一项
+					locCount=substrLoc[reCount]+substr1.length;//下次查找位置
+					reCount++;
+				}
+				else{
+					substrLoc.pop();//推出最后一项-1
+					break;
+				}
+			}
+			return substrLoc;
+		}
+
+		alert(substrSearch(str,"ol"));
+	</script>
+</head>
+<body>
+
+</body>
+</html>

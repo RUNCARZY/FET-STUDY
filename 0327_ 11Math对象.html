@@ -1,0 +1,20 @@
+<html>
+<head>
+	<script language=javascript>
+	var array1=[2,44,55,66,78,33];
+	var maxValue=Math.max.apply(Math,array1);
+	//var maxValue=Math.max(array1); 用该代码替换上一行会出错，为什么呢？（跟this指针有关？） 
+	var minValue=Math.min(1,2,2,3,4,5);
+	//var minValue=Math.min([1,2,2,3,4,5]);用该代码替换上一行会出错，为什么呢？
+	/*我的理解：min()和max()函数只接受多个数值参数，不直接接受一个数组作为参数，利用apply
+	函数将数组转换成参数列表传递给min()函数和max()函数。跟this指针关系不大，因为apply()的第一个
+	参数依旧是Math对象，没有改变this指针。
+	*/
+	alert(maxValue);
+	alert(minValue);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

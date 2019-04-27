@@ -1,0 +1,29 @@
+<html>
+<head>
+	<script language=javascript>
+
+	function createFunctions(){
+		var result = new Array();
+		for (var i=0;i<10 ;i++ )
+		{
+			/*result[i]=function(num){
+				return function(
+					return num;
+				};
+			}(i);*///function(arg){}(realArg);这种写法可以在定义函数的时候直接调用函数
+			f=function(num){
+				return function(){
+					return num;
+				}
+			}
+			result[i]=f(i);//用这几行代码代替上面注释内容会更加清晰。
+		}
+		return result;
+	}
+
+	var try1=createFunctions();
+	alert(try1[2]());
+	</script>
+</head>
+<body></body>
+</html>

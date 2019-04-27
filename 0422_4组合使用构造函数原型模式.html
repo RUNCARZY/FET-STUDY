@@ -1,0 +1,22 @@
+<html>
+<head>
+	<script language=javascript>
+		function Person(name,age,job){
+			this.name=name;
+			this.age=age;
+			this.job=job;
+		}
+		Person.prototype={
+			constructor:Person,//此时constructor变成可枚举
+			sayName:function(){alert(this.name);},
+			sayAge:function(){alert(this.age);},
+			sayJob:function(){alert(this.job);}
+		};
+		Tom=new Person("Tom",54,"engineer");
+		Tom.sayName();
+		Tom.sayAge();
+		Tom.sayJob();
+	</script>
+</head>
+<body></body>
+</html>

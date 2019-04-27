@@ -1,0 +1,28 @@
+<html>
+<head>
+	<script language=javascript>
+	function Dad(){
+		this.name="Mark";
+		this.color=["red","blue"];
+	}
+	Dad.prototype.sayColor=function(){
+		alert(this.color);
+	};
+
+	dad=new Dad();
+	function inherit(dad1){
+		function F(){}
+		F.prototype=dad1;
+		F.prototype.sayName=function(){
+			alert(this.name);
+		};
+		return new F();
+	}
+
+	son=inherit(dad);
+	son.sayColor();
+	son.sayName();
+	</script>
+</head>
+<body></body>
+</html>

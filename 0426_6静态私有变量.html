@@ -1,0 +1,26 @@
+<html>
+<head>
+	<script language=javascript>
+	(function(){
+		var name="Dog";
+		Person=function(){};
+		Person.prototype.sayName=function(){
+				alert(name);
+		};
+		Person.prototype.setName=function(value){
+				name=value;
+		};
+	})();
+
+	var Mary=new Person();
+	Mary.sayName();
+	Mary.setName("Mary");
+	Mary.sayName();
+	var Tony=new Person();
+	Tony.sayName();
+	Tony.setName("Tony");
+	Tony.sayName();
+	</script>
+</head>
+<body></body>
+</html>

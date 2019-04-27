@@ -1,0 +1,25 @@
+<html>
+<head>
+	<script language=javascript>
+	function money(name){
+		var richOrNot=function(num){
+			if (num>20)
+			{
+				alert(name+" Is Rich!");
+			}
+		
+			else{
+				alert(name+" Is Not Rich!");
+			}
+		
+		}
+		return richOrNot;
+	}
+
+	var loli=money("Mray");//由于使用了闭包，返回了函数，所以money()执行后其活动对象不会销毁，保留在内存中，给返回的匿名函数使用，直到该返回的函数被销毁，所以变量name仍然作为loli作用域链中的活动对象保留着
+	loli(18);
+	loli(22);
+	</script>
+</head>
+<body></body>
+</html>

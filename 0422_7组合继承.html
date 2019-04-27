@@ -1,0 +1,35 @@
+<html>
+<head>
+	<script language=javascript>
+	//Person为父类
+	function Person(name){
+		this.name=name;
+	}	
+	Person.prototype={
+		sayName:function(){alert(this.name);},
+		colors:["yellow","black"]
+	};
+	//Student为子类
+	function Student(name,grade){
+		Person.call(this,name);
+		this.grade=grade;
+	}
+	Student.prototype=new Person();
+	Student.prototype.constructor=Student;//父类的构造函数在子类的构造函数中继承，不在子类的原型中继承，因此子类原型的构造函数要指向子类
+	Student.prototype.subject="Math";
+	Student.prototype.sayGrade=function(){
+		alert(this.subject+":"+this.grade);
+	}
+	var Mary=new Student("Mary",89);
+	Mary.sayName();
+	Mary.sayGrade();
+	alert(Mary.colors);
+	Mary.colors.push("wirte");//在此处改变父类继承来的原型属性
+	alert(Mary.colors);
+
+	var Tom=new Person("Tom");
+	alert(Tom.colors);//可以看到父类的原型属性已经被改变了
+	</script>
+</head>
+<body></body>
+</html>

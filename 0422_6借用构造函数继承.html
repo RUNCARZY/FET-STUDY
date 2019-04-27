@@ -1,0 +1,31 @@
+<html>
+<head>
+	<script language=javascript>
+	function bigType(num){
+		this.number=num;
+		this.colors=["red","blue","black"];
+	}
+	bigType.prototype.numDisplay=function(){
+		alert(this.number);
+	};
+
+	function middleType(midNum){
+		bigType.call(this,midNum);
+	}
+
+	middleType.prototype.midNumDisplay=function(){
+		alert(this.number);
+	}
+	
+	var instance1=new middleType(20);
+	//instance1.numDisplay();//无效代码,构造函数继承不继承超类型的原型
+	instance1.midNumDisplay();
+
+	instance1.colors.push("grey");
+	alert(instance1.colors);
+	var instance2=new bigType(66);
+	alert(instance2.colors);//不会改变超类型中的原属性
+	</script>
+</head>
+<body></body>
+</html>

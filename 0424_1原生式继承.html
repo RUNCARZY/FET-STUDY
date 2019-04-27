@@ -1,0 +1,24 @@
+<html>
+<head>
+	<script language=javascript>
+	function object(o){
+		function F(){}
+		F.prototype=o;
+		return new F();	
+	}
+
+	var original={
+		author:"Mark",
+		color:["red","yellow","blue"]
+	};
+	
+	var getIt=object(original);
+	alert(getIt.author);
+	alert(getIt.color.join("|"));
+	getIt.color.push("black");
+	alert(getIt.color.join("|"));
+	alert(original.color.join("|"));
+	</script>
+</head>
+<body></body>
+</html>

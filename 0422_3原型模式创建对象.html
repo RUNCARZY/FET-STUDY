@@ -1,0 +1,38 @@
+<html>
+<head>
+	<script language=javascript>
+		function Person(){
+		}
+		Person.prototype.name="Tom";
+		Person.prototype.age=22;
+		Person.prototype.job="student";
+		Person.prototype.sayJob=function(){
+				alert(this.job);
+		};
+
+		/*等效对象字面量写法：
+		function Person(){}
+		Person.prototype={
+			name:"Tom",
+			age:22,
+			job:"student",
+			sayJob:function(){
+				alert(this.job);
+			}
+		}*/
+		
+		var Tom=new Person();
+		Tom.sayJob();
+
+		Mary=new Person();
+		Mary.name="Mary";
+		Mary.age=25;
+		Mary.job="doctor";
+		Mary.sayJob();
+
+		Person.prototype.job="actor";
+		Tom.sayJob();//此处体现原型的动态性
+	</script>
+</head>
+<body></body>
+</html>

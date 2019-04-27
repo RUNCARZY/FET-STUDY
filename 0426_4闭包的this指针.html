@@ -1,0 +1,30 @@
+<html>
+<head>
+	<script language=javascript>
+	var name="whole world";
+	function randomPick(){
+		var num=Math.random(0,10);
+		if(num<0.1){
+			return function(){
+				alert(this.name+" is lucky!");
+			}
+		}
+		else{
+			return function(){
+				alert(this.name+" is not lucky!");
+			}
+		}
+	}
+	randomPick()();
+	function Person(name,age){
+		this.name=name;
+		this.age=age;
+	}
+	Person.prototype.luckJudge=randomPick;
+	var Tomm=new Person("Tom",14);
+	Tomm.luckJudge()();//匿名函数的this指针总是指向全局
+	Tomm.luckJudge().call(Tomm);
+	</script>
+</head>
+<body></body>
+</html>

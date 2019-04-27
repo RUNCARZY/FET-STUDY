@@ -1,0 +1,37 @@
+<html>
+<head>
+	<script language=javascript>
+	function object(o){
+		function F(){}
+		F.prototype=o;
+		return new F();
+	}
+
+	function inheritRules(Ori,Sub){
+		var proTemp=object(Ori.prototype);
+		proTemp.constructor=Sub;
+		Sub.prototype=proTemp;
+
+
+		/*Sub.prototype=Ori.prototype;
+		Sub.constructor=Sub;//与上3行代码等效，暂时没有发现差别*/
+	}
+
+	function Dad(){
+		this.name="Mark";
+	}
+	Dad.prototype.sayName=function(){
+		alert(this.name);
+	};
+	function Son(){
+		Dad.call(this);
+	}
+	inheritRules(Dad,Son);
+	son=new Son();
+	son.name="FatBoy";
+	son.sayName();
+
+	</script>
+</head>
+<body></body>
+</html>

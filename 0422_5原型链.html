@@ -1,0 +1,34 @@
+<html>
+<head>
+	<script language=javascript>
+		function SuperType(){
+			this.amount=1;
+		}
+
+		SuperType.prototype.sayAmount=function(){
+			alert(this.amount);
+		};
+
+		function SubType(){
+			this.subAmount=-1;
+		}
+
+		SubType.prototype=new SuperType();
+
+		SubType.prototype.saySubAmount=function(){
+			alert(this.subAmount);
+		};
+
+		var oneInstance= new SubType();
+		oneInstance.sayAmount();
+		oneInstance.saySubAmount();	
+		alert(oneInstance instanceof SubType);
+		alert(oneInstance instanceof SuperType);
+		alert(oneInstance instanceof Object);
+		alert(Object.prototype.isPrototypeOf(oneInstance));
+		alert(SuperType.prototype.isPrototypeOf(oneInstance));
+		alert(SubType.prototype.isPrototypeOf(oneInstance));
+	</script>
+</head>
+<body></body>
+</html>

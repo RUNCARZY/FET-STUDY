@@ -1,0 +1,36 @@
+<html>
+<head>
+	<script language=javascript>
+//取得字符子串slice(),substr(),substring()
+		var str6="ABCDEFGHI";
+		alert(str6.slice(2));
+		alert(str6.slice(2,4));
+		alert(str6.slice(-3));//将负数与字符串长度相加，相当于倒数
+		alert(str6.slice(-3,-5));//不合法，无字符串输出，无法通过该方法实现倒序
+		alert(str6.slice(-3,-2));//两个参数都将负数与字符串长度相加，相当于倒数
+
+
+		alert(str6.substr(2));
+		alert(str6.substr(2,4));//第二个字符指要返回的参数个数
+		alert(str6.substr(-3));//将负数与字符串长度相加，相当于倒数
+		alert(str6.substr(-3,1));
+		alert(str6.substr(-3,-5));//第二个参数负视为0，长度为0空字符串
+
+		var typeTest=str6.substr(-3,-5)
+		alert(typeof(typeTest));//string
+		alert(typeTest==null);//flase
+		alert(isNaN(typeTest));
+
+
+		alert(str6.substring(2));
+		alert(str6.substring(2,4));
+		alert(str6.substring(-3));//将负数当成0处理
+		alert(str6.substring(-3,-5));//将负数当成0处理，参数为(0,0)，空字符串
+		alert(typeof(str6.substring(-3,-5)));//string
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

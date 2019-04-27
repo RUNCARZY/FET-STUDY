@@ -1,0 +1,57 @@
+<html>
+<head>
+	<script language=javascript>
+	function factorial_1(num){
+		if (num<=1)
+		{
+			return 1;
+		}
+		else
+		{
+			return num*factorial_1(num-1);
+		}
+	}
+	//利用上述的定义方式，进行下面的操作容易出错
+	var anotherFac_1=factorial_1;
+	alert(anotherFac_1(2));
+	factorial_1=null;
+	//alert(anotherFac_1(2));//出错
+	
+
+	function factorial_2(num){
+		if (num<=1)
+		{
+			return 1;
+		}
+		else
+		{
+			return num*arguments.callee(num-1);
+		}
+	}//利用arguments.callee指向当前正在执行的函数，则不容易出错
+	var anotherFac_2=factorial_2;
+	alert(anotherFac_2(4));
+	factorial_2=null;
+	alert(anotherFac_2(4));//不会出错
+
+
+	//利用下面方式也不容易出错：
+	var factorial_3=(function f(num){
+		if (num<1)
+		{
+			return 1;
+		}
+		else{
+			return num*f(num-1);
+		}
+	});//此处创建了非匿名函数f()
+	alert(factorial_3(3));
+	var anotherFac_3=factorial_3;
+	factorial_3=null;
+	alert(anotherFac_3(3));//正常
+
+
+
+	</script>
+</head>
+<body></body>
+</html>

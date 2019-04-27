@@ -1,0 +1,16 @@
+<html>
+<head>
+	<script language=javascript>
+	function person(name,age){
+		this.name=name;
+		this.age=age;
+		var nextAge=function(num){
+			return num+12;
+		}(age);
+		return nextAge;
+	}
+	alert(person("A",2));
+	</script>
+</head>
+<body></body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+<head>
+	<script language=javascript>
+	var superMan=function(){
+		name="Dog";
+		return{
+			age:22,
+			sayName:function(){
+				alert(name);
+			},
+			setName:function(value){
+				name=value;
+			},
+			setAge:function(num){
+				this.age=num;
+			},
+			sayAge:function(){
+				alert(this.age);
+			}
+		};
+	}();
+	alert(superMan.name);//undefined
+	superMan.sayName();
+	superMan.setName("HOHO");
+	superMan.sayName();
+	superMan.age=10;
+	superMan.sayAge();
+	superMan.age=14;
+	superMan.setAge(18);//为什么不起作用呢
+	superMan.sayAge();
+	</script>
+</head>
+<body></body>
+</html>
